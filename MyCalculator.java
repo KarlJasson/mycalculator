@@ -1,7 +1,3 @@
-/**
- * Author: Kristine Elaine P. Bautista
- * Program Description: Calculator of Simple Mathematical Functions
-**/
 
 public class MyCalculator {
 	// add two numbers
@@ -37,11 +33,15 @@ public class MyCalculator {
 	// n! of an integer
 	public int nfactorial(int n){
 		int factorial = 1;
+		if(n == 0 || n == 1){
+			return 1;
+		}
+		else{
+			for(int i=1;i<=n;i++)
+				factorial *= i;
 		
-		for(int i=1;i<n;i++)
-			factorial *= i;
-		
-		return factorial;
+			return factorial;
+		}
 	}
 	
 	// binary search in an array
@@ -54,10 +54,13 @@ public class MyCalculator {
 			middle = (lower+upper)/2;
 			if(x>a[middle]) lower = middle + 1;
 			else if(x<a[middle]) upper = middle - 1;
-			else return middle;
+			else{ 
+				if(x == a[middle]) return middle;
+				else return -1;
+			}
 		}
 		
-		return 1;
+		return -1;
 	}
-	
+
 }
